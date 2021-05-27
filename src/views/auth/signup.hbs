@@ -1,0 +1,38 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>Registro</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/signup" method="post">
+                        <div class="form-group mb-3">
+                            <label for="id">Documento de identidad</label>
+                            <input type="text" name="id" class="form-control" placeholder="Ingrese su número de identificación" autofocus required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre completo" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="profesion">Profesión</label>
+                            <input type="text" name="profesion" class="form-control" placeholder="Ingrese su profesión" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Correo electronico</label>
+                            <input type="email" name="email" class="form-control" id="" placeholder="Ingrese su correo electronico" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="pass">Contraseña</label>
+                            <input type="password" name="pass" class="form-control" placeholder="Ingrese su contraseña" id="" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="submit" value="Registrarse" class="btn btn-success">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

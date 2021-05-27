@@ -1,0 +1,88 @@
+<div class="container p-4">
+    <div>
+        <div class="card text-white border-white bg-dark mb-3" >
+            <div class="card-body">
+                <div class="">
+                    <h4 class="text-white"><i class="bi bi-people-fill"></i> Mis reuniones</h4>
+                    <br>
+                    <a href="/reunion/add/{{id}}" class="btn btn-primary"><i class="bi bi-calendar-plus"></i> Crear reunión</a>
+                    <a href="/reunion/students/{{id}}" class="btn btn-light"><i class="bi bi-person-lines-fill"></i> Lista de estudiantes</a>
+                    <a href="/reunion/{{id}}" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ver todas las reuniones"><i class="bi bi-calendar3"></i> Ver todas</a>
+                    <a href="/reunion/pendientes/{{id}}" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtrar reuniones Pendientes"><i class="bi bi-calendar-date-fill"></i> Pendientes</a>
+                    <a href="/reunion/finalizada/{{id}}" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtrar reuniones Finalizadas"><i class="bi bi-calendar2-check-fill"></i> Finalizadas</a>
+                    <a href="/reunion/cancelada/{{id}}" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtrar reuniones Canceladas"><i class="bi bi-calendar-x-fill"></i> Canceladas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each reuniones}}
+            <div class="col-md-4 mb-4">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="text-center">{{nombre_reunion}}</h4>
+                        <p class="text-center text-muted">{{timeago fecha}}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="m-2">
+                            <p><strong>Descripción:</strong> <span style="font-size: 15px;">{{descripcion}}</span></p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-calendar-date"></i> Fecha de reunión: </strong>{{fecha}}</p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-stopwatch"></i> Hora de reunión: </strong> {{hora}}</p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-toggle-off"></i> Estado: </strong> <span class="{{../badge}}">{{estado}}</span></p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-people"></i> Curso: </strong> <span class="badge bg-primary">{{curso}}</span></p>
+                        </div>
+                        <div class="accordion" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-{{id_reunion}}" aria-expanded="false" aria-controls="flush-{{id_reunion}}">
+                                        <strong><i class="bi bi-gear"></i> Configuración</strong>
+                                    </button>
+                                </h2>
+                                <div id="flush-{{id_reunion}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <ol class="list-group">
+                                            <li class="list-group-item list-group-item-action list-group-item-warning d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold"><a href="/reunion/edit/{{id_reunion}}" class="text-decoration-none" style="color: #5a4200;">Editar reunión</a> </div>
+                                                    <a href="/reunion/edit/{{id_reunion}}" class="text-decoration-none"style="color: #705200;">Edita los detalles de la reunión.</a>
+                                                </div>
+                                                <a href="/reunion/edit/{{id_reunion}}" class="text-decoration-none"><span class="badge bg-warning rounded-pill"><i class="bi bi-pencil"></i></span></a>
+                                            </li>
+                                            <li class="list-group-item list-group-item-action list-group-item-danger d-flex justify-content-between align-items-start">
+                                                <div class="ms-2 me-auto">
+                                                    <div class="fw-bold"><a href="/reunion/delete/{{id_reunion}}/{{curso}}" class="text-decoration-none"style="color: #6e0c15;">Eliminar reunión</a></div>
+                                                    <a href="/reunion/delete/{{id_reunion}}/{{curso}}" class="text-decoration-none"style="color: #910e1b;">Despues de eliminar no podras recuperar la reunión.</a>
+                                                </div>
+                                                <a href="/reunion/delete/{{id_reunion}}/{{curso}}" class="text-decoration-none"><span class="badge bg-danger rounded-pill"><i class="bi bi-trash"></i></span></a>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{link}}" class="btn btn-success" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> Ir a la reunión</a>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-6 mx-auto">
+                <div class="card-body text-center">
+                    <img src="/img/img3.jpg" class="img-fluid mb-4" alt="">
+                    <h4 class="text-white">Crea reuniones</h4>
+                    <p class="text-white">No hay reuniones aún. Presiona en Crear reunión.</p>
+                    <a href="/reunion/add/{{id}}" class="btn btn-primary"><strong><i class="bi bi-calendar-plus"></i> Crear reunión</strong></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

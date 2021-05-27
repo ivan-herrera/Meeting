@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div>
+        <div class="card text-white border-white bg-dark mb-3" >
+            <div class="card-body">
+                <div class="">
+                    
+                    <h4 class="text-white"><i class="bi bi-display"></i> Mis cursos</h4><br>
+                    <a href="/curso/add" class="btn btn-primary"><i class="bi bi-display"></i> Crear curso</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each cursos}}
+            <div class="col-md-4 mb-4">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="text-center">{{nombre_curso}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-display"></i> Nombre del curso:</strong> <span style="font-size: 15px;">{{id_curso}}</span></p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/curso/course/{{id_curso}}" class="btn btn-success" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> Entrar al curso</a>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-6 mx-auto">
+                <div class="card-body text-center">
+                    <img src="/img/img4.jpg" class="img-fluid mb-4" alt="Profesor dictando clase virtual a estudiante">
+                    <h4 class="text-white">No tienes cursos</h4>
+                    <p class="text-white">Aún no se te ha asignado ningún curso.</p>
+                    <a href="/curso/add/{{id}}" class="btn btn-primary"><strong><i class="bi bi-display"></i> Crear curso</strong></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

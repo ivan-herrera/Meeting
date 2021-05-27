@@ -1,0 +1,37 @@
+<div class="container p-4">
+    <div>
+        <div class="card text-white border-white bg-dark mb-3" >
+            <div class="card-body">
+                <div class="">
+                    <h4 class="text-white">Estudiantes participantes</h4>
+                    <p>La siguiente tabla muestra la información de contacto de los estudiantes que pertenecen al curso: <strong>{{curso}}</strong></p>
+                    <a href="/reunion/{{curso}}" class="btn btn-light"><i class="bi bi-arrow-90deg-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card border-white bg-dark caption-top">
+        <div class="card-body ">
+            <div>
+                <table class="table table-light table-striped table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col"><i class="bi bi-person-badge"></i> Identificación</th>
+                            <th scope="col"><i class="bi bi-card-text"></i> Nombres y Apellidos</th>
+                            <th scope="col"><i class="bi bi-envelope"></i> Correo electrónico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each students}}
+                        <tr>
+                            <th>{{identificacion}}</th>
+                            <th>{{fullname}}</th>
+                            <th>{{email}}</th>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

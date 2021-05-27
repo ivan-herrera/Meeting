@@ -1,0 +1,56 @@
+<div class="container p-4">
+    <div>
+        <div class="card text-white border-white bg-dark mb-3" >
+            <div class="card-body">
+                <div class="">
+                    <h4 class="text-white"><i class="bi bi-people-fill"></i> Mis reuniones</h4>
+                    <br>
+                    <a href="/reunion/pendientes-e/{{idcurso}}" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtrar reuniones Pendientes"><i class="bi bi-calendar-date-fill"></i> Pendientes</a>
+                    <a href="/reunion/finalizada-e/{{idcurso}}" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtrar reuniones Finalizadas"><i class="bi bi-calendar2-check-fill"></i> Finalizadas</a>
+                    <a href="/reunion/cancelada-e/{{idcurso}}" class="btn btn-outline-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Filtrar reuniones Canceladas"><i class="bi bi-calendar-x-fill"></i> Canceladas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{#each reuniones}}
+            <div class="col-md-4 mb-4">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="text-center">{{nombre_reunion}}</h4>
+                        <p class="text-center text-muted">{{timeago fecha}}</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="m-2">
+                            <p><strong>Descripción:</strong> <span style="font-size: 15px;">{{descripcion}}</span></p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-calendar-date"></i> Fecha de reunión: </strong>{{fecha}}</p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-stopwatch"></i> Hora de reunión: </strong> {{hora}}</p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-toggle-off"></i> Estado: </strong> <span class="{{../badge}}">{{estado}}</span></p>
+                        </div>
+                        <div class="m-2">
+                            <p><strong><i class="bi bi-people"></i> Curso: </strong> <span class="badge bg-primary">{{curso}}</span></p>
+                        </div>
+                        
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{link}}" class="btn btn-success" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> Ir a la reunión</a>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-6 mx-auto">
+                <div class="card-body text-center">
+                    <img src="/img/img3.jpg" class="img-fluid mb-4" alt="">
+                    <h4 class="text-white">No hay reuniones</h4>
+                    <p class="text-white">Este curso aún no tinene reuniónes.</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>

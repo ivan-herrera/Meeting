@@ -1,0 +1,67 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Nueva reunión</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/reunion/add/{{id}}" method="POST">
+                        <div class="form-group mb-3">
+                            <label for="nombre_reunion">Nombre de la reunión</label>
+                            <input type="text" name="nombre_reunion" class="form-control" placeholder="¿Comó se llamará tu reunión?" autofocus required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="descripcion">Descripción de la reunión</label>
+                            <textarea rows="3" name="descripcion" class="form-control" placeholder="¿De qué trata esta reunión? Realiza una descripcion de la reunión (Max. 1000 palabras)" required></textarea>
+                        </div>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="fecha">Fecha de la reunión</label>
+                                    <input type="date" name="fecha" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="hora">Hora de la reunión</label>
+                                    <input type="time" name="hora" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="link">Enlace de la reunion</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">URL</span>
+                                        <input type="url" name="link" class="form-control" placeholder="http://mi-reunion.com/Dp4WhZiM" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="curso">Curso</label>
+                                    <select name="curso" class="form-select">
+                                        <option value="{{curso.id_curso}}">{{curso.nombre_curso}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="estado">Estado</label>
+                            <select name="estado" class="form-select">
+                                <option value="Pendiente" selected>Pendiente</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="submit" value="Confirmar reunión" class="btn btn-success btn-block">
+                            <a href="/reunion/{{curso.id_curso}}" class="btn btn-outline-danger btn-block">Deshacer</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
